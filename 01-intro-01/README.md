@@ -4,11 +4,11 @@
 Вы пришли на новое место работы или приобрели новый компьютер. Сначала надо настроить окружение для дальнейшей работы.
 
 ### Решение 1. Подготовка рабочей среды
-- Terraform ![Terraform](./img/tf.png)
-- Bash ![Terraform](./img/sh.png)
-- Markdown ![Terraform](./img/md.png)
-- YAML ![Terraform](./img/yaml.png)
-- Jsonnet ![Terraform](./img/jsonnet.png)
+- Terraform: ![](./img/tf.png)
+- Bash: ![](./img/sh.png)
+- Markdown: ![](./img/md.png)
+- YAML: ![](./img/yaml.png)
+- Jsonnet: [](./img/jsonnet.png)
 
 ## Задание 2. Описание жизненного цикла задачи (разработки нового функционала)
 Чтобы лучше понимать предназначение инструментов, с которыми вам предстоит работать, составим схему жизненного цикла задачи в идеальном для вас случае.
