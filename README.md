@@ -31,3 +31,6 @@
 `.terraformrc` файл .terraformrc
 
 `terraform.rc` файл terraform.rc
+
+
+test test
