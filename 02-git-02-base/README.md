@@ -8,8 +8,9 @@
 - `gitlab	git@gitlab.com:nfeel/devops-netology.git (push)`
 - `origin	git@github.com:/nikefeel/devops-netology.git (fetch)`
 - `origin	git@github.com:/nikefeel/devops-netology.git (push)`
-## Задание 1. Теги.
+## Задание 2. Теги.
+### Решение
+У аннотированного тега есть автор тега и комментарий к тегу.
+## Задача 3. Ветки
 ### Решение
 
-## Задача 3
-### Решение
