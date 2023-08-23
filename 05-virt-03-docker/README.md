@@ -6,7 +6,7 @@
 - создайте свой fork образа;
 - реализуйте функциональность: запуск веб-сервера в фоне с индекс-страницей, содержащей HTML-код ниже:
 ### Решение
-- Ссылка на репозиторий https://hub.docker.com/r/nfeel/nginx
+- Ссылка на репозиторий https://hub.docker.com/repository/docker/nfeel/nginx/general
 ## Задание 2
 - Посмотрите на сценарий ниже и ответьте на вопрос: «Подходит ли в этом сценарии использование Docker-контейнеров или лучше подойдёт виртуальная машина, физическая машина? Может быть, возможны разные варианты?»
 - Детально опишите и обоснуйте свой выбор.
@@ -24,7 +24,7 @@
 `CONTAINER ID   IMAGE          COMMAND        CREATED         STATUS              PORTS     NAMES`\
 `21909aef414a   nfeel/debian   "/sbin/init"   2 seconds ago   Up 1 second                   gracious_noyce`\
 `60ad953389f4   nfeel/centos   "/sbin/init"   2 minutes ago   Up About a minute             thirsty_sutherland`\
-` # docker exec -it thirsty_sutherland ls -l /data`\
+`# docker exec -it thirsty_sutherland ls -l /data`\
 `-rw-r--r-- 1 root root 12 Aug 23 16:46 testcentos.txt`\
 `-rw-r--r-- 1 root root  9 Aug 23 16:50 testhost.txt`\
 `# docker exec -it thirsty_sutherland cat /data/*.txt`\
@@ -38,4 +38,7 @@
 `testhost`
 
 ## Задание 4
+- Воспроизведите практическую часть лекции самостоятельно.
+- Соберите Docker-образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
 ### Решение
+Ссылка на репозиторий https://hub.docker.com/repository/docker/nfeel/ansible/general
