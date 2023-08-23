@@ -13,5 +13,22 @@
 ### Решение
 
 ## Задание 3
+`# docker ps`
+
+`CONTAINER ID   IMAGE          COMMAND        CREATED         STATUS              PORTS     NAMES`\
+`21909aef414a   nfeel/debian   "/sbin/init"   2 seconds ago   Up 1 second                   gracious_noyce`\
+`60ad953389f4   nfeel/centos   "/sbin/init"   2 minutes ago   Up About a minute             thirsty_sutherland`
+` # docker exec -it thirsty_sutherland ls -l /data`\
+`-rw-r--r-- 1 root root 12 Aug 23 16:46 testcentos.txt`\
+`-rw-r--r-- 1 root root  9 Aug 23 16:50 testhost.txt`\
+` # docker exec -it thirsty_sutherland cat /data/*.txt`\
+`testcentos` \
+`testhost`\
+` # docker exec -it gracious_noyce ls -l /data`\
+`-rw-r--r-- 1 root root 12 Aug 23 16:46 testcentos.txt`\
+`-rw-r--r-- 1 root root  9 Aug 23 16:50 testhost.txt`\
+`# docker exec -it gracious_noyce cat /data/*.txt`\
+`testcentos`\
+`testhost`\
 
 ### Решение
