@@ -22,7 +22,8 @@
 
 `# docker exec -it thirsty_sutherland ls -l /data`\
 `-rw-r--r-- 1 root root 12 Aug 23 16:46 testcentos.txt`\
-`-rw-r--r-- 1 root root  9 Aug 23 16:50 testhost.txt`\
+`-rw-r--r-- 1 root root  9 Aug 23 16:50 testhost.txt`
+
 `# docker exec -it thirsty_sutherland cat /data/*.txt`\
 `testcentos` \
 `testhost`
