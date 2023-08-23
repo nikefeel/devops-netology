@@ -13,6 +13,12 @@
 ### Решение
 
 ## Задание 3
+- Запустите первый контейнер из образа centos c любым тегом в фоновом режиме, подключив папку /data из текущей рабочей директории на хостовой машине в /data контейнера.
+- Запустите второй контейнер из образа debian в фоновом режиме, подключив папку /data из текущей рабочей директории на хостовой машине в /data контейнера.
+- Подключитесь к первому контейнеру с помощью docker exec и создайте текстовый файл любого содержания в /data.
+- Добавьте ещё один файл в папку /data на хостовой машине.
+- Подключитесь во второй контейнер и отобразите листинг и содержание файлов в /data контейнера.
+### Решение
 `# docker ps`
 
 `CONTAINER ID   IMAGE          COMMAND        CREATED         STATUS              PORTS     NAMES`\
@@ -21,14 +27,15 @@
 ` # docker exec -it thirsty_sutherland ls -l /data`\
 `-rw-r--r-- 1 root root 12 Aug 23 16:46 testcentos.txt`\
 `-rw-r--r-- 1 root root  9 Aug 23 16:50 testhost.txt`\
-` # docker exec -it thirsty_sutherland cat /data/*.txt`\
+`# docker exec -it thirsty_sutherland cat /data/*.txt`\
 `testcentos` \
 `testhost`\
-` # docker exec -it gracious_noyce ls -l /data`\
+`# docker exec -it gracious_noyce ls -l /data`\
 `-rw-r--r-- 1 root root 12 Aug 23 16:46 testcentos.txt`\
 `-rw-r--r-- 1 root root  9 Aug 23 16:50 testhost.txt`\
 `# docker exec -it gracious_noyce cat /data/*.txt`\
 `testcentos`\
-`testhost`\
+`testhost`
 
+## Задание 4
 ### Решение
