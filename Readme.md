@@ -12,7 +12,6 @@
 - 5.3 [Введение. Экосистема. Архитектура. Жизненный цикл Docker контейнера
 ](05-virt-03-docker/README.md)
 - 5.4 [Оркестрация группой Docker контейнеров на примере Docker Compose](05-virt-04-docker-compose/README.md)
-- 5.5 [Оркестрация кластером Docker контейнеров на примере Docker Swarm](05-virt-05-docker-swarm/README.md)
 - ## Модуль 4. Облачная инфраструктура. Terraform
 - 6.1 [Введение в Terraform](06-ter-intro/README.md)
 - 6.2 [Основы работы с Terraform](06-ter-02-base/README.md)
