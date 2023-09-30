@@ -13,3 +13,7 @@ override.tf.json
 terraform.rc
 .DS_Store
 .idea/*
+**/.terraform/*
+.terraform*
+personal.auto.tfvars
+
