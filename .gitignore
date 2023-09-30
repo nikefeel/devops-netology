@@ -1,16 +1,11 @@
 **/.terraform/*
 .terraform*
-terraform.rc
+terraformrc
 *.tfstate*
-#*.tfstate.*
 crash.*
-#crash.*.log
 *.tfvars*
-#*.tfvars.json
 override.tf*
-#override.tf.json
 *_override.tf*
-#*_override.tf.json
 .DS_Store
 .idea/*
 personal.auto.tfvars
