@@ -31,36 +31,6 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
-variable "vm_web_family" {
-  type        = string
-  default     = "ubuntu-2004-lts"
-}
-
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-}
-
-variable "vm_web_platform" {
-  type        = string
-  default     = "standard-v1"
-}
-
-variable "vm_web_cores" {
-  type        = string
-  default     = "2"
-}
-
-variable "vm_web_mem" {
-  type        = string
-  default     = "1"
-}
-
-variable "vm_web_core_fraction" {
-  type        = string
-  default     = "5"
-}
-
 ###ssh vars
 
 variable "vms_ssh_root_key" {
