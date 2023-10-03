@@ -28,13 +28,15 @@ variable "default_cidr" {
 variable "vpc_name" {
   type        = string
   default     = "develop"
-  description = "VPC network & subnet name"
+  description = "VPC network&subnet name"
 }
 
-###ssh vars
-
-variable "vms_ssh_root_key" {
+variable "vm_platform" {
   type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN4A4LfOChzEcL1wsV8XcYeeEIBsm6an8OgLQVF2cWSH"
-  description = "ssh-keygen -t ed25519"
+  default     = "standard-v1"
+}
+
+variable "vm_family" {
+  type        = string
+  default     = "ubuntu-2004-lts"
 }
