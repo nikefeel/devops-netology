@@ -1,4 +1,5 @@
 **/.terraform/*
+**/.idea/*
 *.tfstate*
 *.tfvars*
 *override.tf*
@@ -6,4 +7,3 @@
 terraformrc
 crash.*
 .DS_Store
-.idea/*
