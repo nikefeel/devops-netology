@@ -40,3 +40,16 @@ variable "vm_family" {
   type        = string
   default     = "ubuntu-2004-lts"
 }
+
+variable "hw" {
+  type = list(object({
+    vm_name = string
+    cpu = number
+    ram  = number
+    disk = number
+  }))
+  default = [
+    { vm_name = "main", cpu = 4, ram = 4, disk = 10 },
+    { vm_name = "replica", cpu = 2, ram = 2, disk = 5 },
+  ]
+}
