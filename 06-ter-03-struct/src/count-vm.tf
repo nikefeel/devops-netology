@@ -24,4 +24,7 @@ resource "yandex_compute_instance" "web" {
     subnet_id = yandex_vpc_subnet.develop.id
     nat       = true
   }
+    metadata = {
+    ssh-keys = local.key
+  }
 }

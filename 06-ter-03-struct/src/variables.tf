@@ -38,7 +38,7 @@ variable "vm_platform" {
 
 variable "vm_family" {
   type        = string
-  default     = "ubuntu-2004-lts"
+  default     = "ubuntu-2204-lts"
 }
 
 variable "hw" {
@@ -49,7 +49,7 @@ variable "hw" {
     disk = number
   }))
   default = [
-    { vm_name = "main", cpu = 4, ram = 4, disk = 10 },
-    { vm_name = "replica", cpu = 2, ram = 2, disk = 5 },
+    { vm_name = "netology-develop-platform-main", cpu = 4, ram = 4, disk = 10 },
+    { vm_name = "netology-develop-platform-replica", cpu = 2, ram = 2, disk = 5 }
   ]
 }
