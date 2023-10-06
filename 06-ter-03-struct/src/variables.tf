@@ -50,6 +50,18 @@ variable "hw" {
   }))
   default = [
     { vm_name = "netology-develop-platform-main", cpu = 4, ram = 4, disk = 10 },
-    { vm_name = "netology-develop-platform-replica", cpu = 2, ram = 2, disk = 5 }
+    { vm_name = "netology-develop-platform-replica", cpu = 2, ram = 2, disk = 8 }
+  ]
+}
+
+variable "volumes" {
+  type = list(object({
+    volume = string
+    size = number
+  }))
+  default = [
+    { volume = "volume-0", size = 1 },
+    { volume = "volume-1", size = 1 },
+    { volume = "volume-2", size = 1 }
   ]
 }

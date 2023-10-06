@@ -18,17 +18,22 @@ resources {
       size = var.hw[each.value]["disk"]
     }
   }
+
   scheduling_policy {
     preemptible = true
   }
+
   network_interface {
     subnet_id = yandex_vpc_subnet.develop.id
     nat       = true
   }
+
     metadata = {
-    ssh-keys = local.key
+    ssh-keys = "ubuntu:local.key"
   }
+
   depends_on = [
     yandex_compute_instance.web
   ]
+
 }
