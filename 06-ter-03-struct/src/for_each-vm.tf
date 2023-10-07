@@ -3,7 +3,6 @@ data "yandex_compute_image" "xyz" {
 }
 
 resource "yandex_compute_instance" "xyz" {
-  platform_id = var.vm_platform
   for_each = toset(keys({for i, r in var.hw:  i => r}))
   name  = var.hw[each.value]["vm_name"]
 
@@ -16,6 +15,7 @@ resources {
     initialize_params {
       image_id = data.yandex_compute_image.xyz.image_id
       size = var.hw[each.value]["disk"]
+      type = "network-ssd"
     }
   }
 

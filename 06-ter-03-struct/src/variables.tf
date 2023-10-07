@@ -31,11 +31,6 @@ variable "vpc_name" {
   description = "VPC network&subnet name"
 }
 
-variable "vm_platform" {
-  type        = string
-  default     = "standard-v1"
-}
-
 variable "vm_family" {
   type        = string
   default     = "ubuntu-2204-lts"
@@ -57,11 +52,10 @@ variable "hw" {
 variable "volumes" {
   type = list(object({
     volume = string
-    size = number
   }))
   default = [
-    { volume = "volume-0", size = 1 },
-    { volume = "volume-1", size = 1 },
-    { volume = "volume-2", size = 1 }
+    { volume = "volume-0" },
+    { volume = "volume-1" },
+    { volume = "volume-2" }
   ]
 }

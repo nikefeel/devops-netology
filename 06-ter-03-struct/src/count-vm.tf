@@ -3,7 +3,6 @@ data "yandex_compute_image" "web" {
 }
 
 resource "yandex_compute_instance" "web" {
-  platform_id = var.vm_platform
   count = 2
   name  = "netology-develop-platform-web-${count.index+1}"
 
@@ -15,6 +14,7 @@ resource "yandex_compute_instance" "web" {
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.web.image_id
+      type = "network-ssd"
     }
   }
   scheduling_policy {

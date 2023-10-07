@@ -1,6 +1,7 @@
-resource "yandex_compute_disk" "disk" {
+resource "yandex_compute_disk" "volume" {
  size = 1
  count = 3
+ type = "network-ssd"
  name  = "volume-${count.index}"
 }
 
@@ -9,8 +10,6 @@ data "yandex_compute_image" "storage" {
 }
 
 resource "yandex_compute_instance" "storage" {
-
-  platform_id = var.vm_platform
   name  = "netology-storage"
 
   resources {
@@ -22,13 +21,15 @@ resource "yandex_compute_instance" "storage" {
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.storage.image_id
+      type = "network-ssd"
     }
   }
 
-  dynamic "secondary_disk" {
-    for_each = [ for volume in var.volumes: volume ]
+
+ dynamic "secondary_disk" {
+    for_each = yandex_compute_disk.volume
     content {
-   disk_id = yandex_compute_disk.disk[0]
+      disk_id   = "yandex_compute_disk.volume[*].id"
     }
   }
 
@@ -42,7 +43,12 @@ resource "yandex_compute_instance" "storage" {
   }
 
     metadata = {
-    ssh-keys = "ubuntu:local.key"
+    ssh-keys = "${local.user}:${local.key}"
   }
-
 }
+
+#output "volume_id" {
+#  value = {
+#    "yandex_compute_disk.volume" = yandex_compute_disk.volume[*].id
+#  }
+#}
