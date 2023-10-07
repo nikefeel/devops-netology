@@ -2,6 +2,7 @@
 **/.idea/*
 *.tfstate*
 *.tfvars*
+*.cfg
 *override.tf*
 .terraform*
 terraformrc

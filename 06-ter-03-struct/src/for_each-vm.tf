@@ -1,8 +1,8 @@
-data "yandex_compute_image" "xyz" {
+data "yandex_compute_image" "db" {
   family = var.vm_family
 }
 
-resource "yandex_compute_instance" "xyz" {
+resource "yandex_compute_instance" "db" {
   for_each = toset(keys({for i, r in var.hw:  i => r}))
   name  = var.hw[each.value]["vm_name"]
 
@@ -13,7 +13,7 @@ resources {
 
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.xyz.image_id
+      image_id = data.yandex_compute_image.db.image_id
       size = var.hw[each.value]["disk"]
       type = "network-ssd"
     }
@@ -29,7 +29,7 @@ resources {
   }
 
     metadata = {
-    ssh-keys = "ubuntu:local.key"
+    ssh-keys = "${local.user}:${local.key}"
   }
 
   depends_on = [

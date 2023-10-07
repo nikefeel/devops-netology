@@ -25,13 +25,12 @@ resource "yandex_compute_instance" "storage" {
     }
   }
 
-
- dynamic "secondary_disk" {
-    for_each = yandex_compute_disk.volume
-    content {
-      disk_id   = "yandex_compute_disk.volume[*].id"
-    }
-  }
+# dynamic "secondary_disk" {
+#    for_each = yandex_compute_disk.volume
+#    content {
+#      disk_id   = local.volumes_ids.id
+#    }
+#  }
 
   scheduling_policy {
     preemptible = true
@@ -45,10 +44,11 @@ resource "yandex_compute_instance" "storage" {
     metadata = {
     ssh-keys = "${local.user}:${local.key}"
   }
+    depends_on = [
+    yandex_compute_instance.db
+  ]
 }
 
-#output "volume_id" {
-#  value = {
-#    "yandex_compute_disk.volume" = yandex_compute_disk.volume[*].id
-#  }
-#}
+output "id" {
+  value = var.servers_group
+}

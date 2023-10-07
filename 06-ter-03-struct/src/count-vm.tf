@@ -25,6 +25,6 @@ resource "yandex_compute_instance" "web" {
     nat       = true
   }
     metadata = {
-    ssh-keys = "ubuntu:local.key"
+    ssh-keys = "${local.user}:${local.key}"
   }
 }

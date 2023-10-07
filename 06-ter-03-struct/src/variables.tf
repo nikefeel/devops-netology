@@ -49,13 +49,11 @@ variable "hw" {
   ]
 }
 
-variable "volumes" {
-  type = list(object({
-    volume = string
-  }))
-  default = [
-    { volume = "volume-0" },
-    { volume = "volume-1" },
-    { volume = "volume-2" }
-  ]
+variable "servers_group" {
+  type = map
+  default = {
+    web     = "yandex_compute_instance.web"
+    db      = "yandex_compute_instance.db"
+    storage = "yandex_compute_instance.storage"
+  }
 }
