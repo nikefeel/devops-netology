@@ -50,5 +50,5 @@ resource "yandex_compute_instance" "storage" {
 }
 
 output "id" {
-  value = var.servers_group
+  value = local.volumes_ids
 }
