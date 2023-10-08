@@ -37,5 +37,4 @@ resources {
   depends_on = [
     yandex_compute_instance.web
   ]
-
 }

@@ -48,13 +48,13 @@ variable "security_group_egress" {
       description    = "разрешить весь исходящий трафик"
       v4_cidr_blocks = ["0.0.0.0/0"]
       from_port      = 0
-      to_port        = 65365
+      to_port        = 65535
     }
   ]
 }
 
-resource "yandex_vpc_security_group" "example" {
-  name       = "example_dynamic"
+resource "yandex_vpc_security_group" "fw" {
+  name       = "develop-sg"
   network_id = yandex_vpc_network.develop.id
   folder_id  = var.folder_id
 
