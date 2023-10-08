@@ -5,6 +5,8 @@ data "yandex_compute_image" "db" {
 resource "yandex_compute_instance" "db" {
   for_each = toset(keys({for i, r in var.hw:  i => r}))
   name  = var.hw[each.value]["vm_name"]
+  platform_id = var.vm_platform
+  allow_stopping_for_update = true
 
 resources {
     cores  = var.hw[each.value]["cpu"]

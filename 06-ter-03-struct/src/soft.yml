@@ -8,7 +8,7 @@
   become: yes
   tasks:
   
-  - name: Install Nginx Web Server on Debian Family
+  - name: Install Nginx Web Server
     apt:
       name: nginx
       state: latest   

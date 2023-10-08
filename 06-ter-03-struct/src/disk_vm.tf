@@ -11,11 +11,13 @@ data "yandex_compute_image" "storage" {
 
 resource "yandex_compute_instance" "storage" {
   name  = "netology-storage"
+  platform_id = var.vm_platform
+  allow_stopping_for_update = true
 
   resources {
     cores  = 2
     memory = 1
-    core_fraction = 5
+    core_fraction = 20
   }
 
   boot_disk {
@@ -47,8 +49,4 @@ resource "yandex_compute_instance" "storage" {
     depends_on = [
     yandex_compute_instance.db
   ]
-}
-
-output "id" {
-  value = local.volumes_ids
 }

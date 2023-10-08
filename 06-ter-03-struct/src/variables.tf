@@ -36,6 +36,11 @@ variable "vm_family" {
   default     = "ubuntu-2204-lts"
 }
 
+variable "vm_platform" {
+  type        = string
+  default     = "standard-v3"
+}
+
 variable "hw" {
   type = list(object({
     vm_name = string
@@ -50,10 +55,6 @@ variable "hw" {
 }
 
 variable "servers_group" {
-  type = map
-  default = {
-    web     = "yandex_compute_instance.web"
-    db      = "yandex_compute_instance.db"
-    storage = "yandex_compute_instance.storage"
-  }
+    type = string
+    default = "yandex_compute_instance.web"
 }

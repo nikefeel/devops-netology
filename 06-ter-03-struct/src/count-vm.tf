@@ -5,11 +5,13 @@ data "yandex_compute_image" "web" {
 resource "yandex_compute_instance" "web" {
   count = 2
   name  = "netology-develop-platform-web-${count.index+1}"
+  platform_id = var.vm_platform
+  allow_stopping_for_update = true
 
   resources {
     cores  = 2
     memory = 1
-    core_fraction = 5
+    core_fraction = 20
   }
   boot_disk {
     initialize_params {
