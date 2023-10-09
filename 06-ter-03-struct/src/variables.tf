@@ -71,15 +71,6 @@ variable "vm_web_resources" {
 }
 
 variable "vm_db_resources" {
-  type = map
-  default = {
-  cpu = 2
-  ram = 1
-  core_fraction = 20
-    }
-}
-
-variable "mainreplica_resources" {
   type = list(object({
     vm_name = string
     cpu = number
@@ -87,7 +78,55 @@ variable "mainreplica_resources" {
     disk = number
   }))
   default = [
-    { vm_name = "main", cpu = 4, ram = 4, disk = 10 },
-    { vm_name = "replica", cpu = 2, ram = 2, disk = 8 }
+    {
+      vm_name = "main"
+      cpu = 4
+      ram = 4
+      disk = 10
+    },
+    {
+      vm_name = "replica"
+      cpu = 2
+      ram = 2
+      disk = 8
+    }
+  ]
+}
+
+variable "vm_storage_resources" {
+  type = list(object({
+   vm_name = string
+    cpu     = number
+    ram     = number
+    core_fraction    = number
+  }))
+  default = [
+    {
+      vm_name = "storage"
+      cpu   = 2
+      ram   = 2
+      core_fraction  = 20
+    }
+  ]
+}
+
+variable "volumes" {
+  type = list(object({
+   volume_name = string
+   volume_size = number
+  }))
+  default = [
+    {
+   volume_name = "volume-1"
+   volume_size    = 1
+    },
+    {
+   volume_name = "volume-2"
+   volume_size    = 1
+    },
+    {
+   volume_name = "volume-3"
+   volume_size    = 1
+    }
   ]
 }

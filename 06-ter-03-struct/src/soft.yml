@@ -1,6 +1,6 @@
 ---
 
-- name: test
+- name: nginx
   gather_facts: false
   hosts: all
   vars:
@@ -8,7 +8,7 @@
   become: yes
   tasks:
   
-  - name: Install Nginx Web Server
+  - name: Install Nginx
     apt:
       name: nginx
       state: latest   

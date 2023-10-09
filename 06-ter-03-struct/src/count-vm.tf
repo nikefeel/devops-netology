@@ -21,11 +21,12 @@ resource "yandex_compute_instance" "web" {
     preemptible = true
   }
   network_interface {
-    security_group_ids = ["${yandex_vpc_security_group.fw.id}"]
+    security_group_ids = [yandex_vpc_security_group.fw.id]
     subnet_id = yandex_vpc_subnet.develop.id
     nat       = true
   }
     metadata = {
+    serial-port-enable = 1
     ssh-keys = "${local.user}:${local.key}"
   }
 }
