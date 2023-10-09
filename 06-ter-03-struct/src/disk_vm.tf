@@ -4,12 +4,6 @@ resource "yandex_compute_disk" "volumes" {
   size     = each.value["volume_size"]
 }
 
-#resource "yandex_compute_disk" "volumes" {
-#  count = 3
-#  size  = 1
-#  name  = "volume-${count.index+1}"
-#}
-
 data "yandex_compute_image" "storage" {
   family = var.vm_family
 }
