@@ -16,5 +16,5 @@
 - 6.1 [Введение в Terraform](06-ter-01-intro/README.md)
 - 6.2 [Основы работы с Terraform](06-ter-02-base/README.md)
 - 6.3 [Управляющие конструкции в коде Terraform](06-ter-03-struct/README.md)
-- 6.4 [Продвинутые методы работы с Terraform](06-ter-04-adv/README.md/README.md)
-- 6.5 [Использование Terraform в команде](06-ter-05-team/README.md/README.md)
+- 6.4 [Продвинутые методы работы с Terraform](06-ter-04-adv/README.md)
+- 6.5 [Использование Terraform в команде](06-ter-05-team/README.md)
