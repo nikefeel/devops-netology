@@ -33,15 +33,53 @@ variable "vpc_name" {
 
 variable "vm_family" {
   type        = string
-  default     = "ubuntu-2204-lts"
+  default     = "debian-12"
 }
 
-variable "vm_platform" {
+variable "vm_name" {
   type        = string
-  default     = "standard-v3"
+  default     = "netology"
 }
 
-variable "hw" {
+variable "vm_env" {
+  type        = string
+  default     = "develop"
+}
+
+variable "vm_role_db" {
+  type        = string
+  default     = "db"
+}
+
+variable "vm_role_web" {
+  type        = string
+  default     = "web"
+}
+
+variable "vm_role_storage" {
+  type        = string
+  default     = "storage"
+}
+
+variable "vm_web_resources" {
+  type = map
+  default = {
+  cpu = 2
+  ram = 1
+  core_fraction = 5
+    }
+}
+
+variable "vm_db_resources" {
+  type = map
+  default = {
+  cpu = 2
+  ram = 1
+  core_fraction = 20
+    }
+}
+
+variable "mainreplica_resources" {
   type = list(object({
     vm_name = string
     cpu = number
@@ -49,12 +87,7 @@ variable "hw" {
     disk = number
   }))
   default = [
-    { vm_name = "netology-develop-platform-main", cpu = 4, ram = 4, disk = 10 },
-    { vm_name = "netology-develop-platform-replica", cpu = 2, ram = 2, disk = 8 }
+    { vm_name = "main", cpu = 4, ram = 4, disk = 10 },
+    { vm_name = "replica", cpu = 2, ram = 2, disk = 8 }
   ]
-}
-
-variable "servers_group" {
-    type = string
-    default = "yandex_compute_instance.web"
 }

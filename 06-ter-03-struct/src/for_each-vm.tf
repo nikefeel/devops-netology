@@ -3,38 +3,30 @@ data "yandex_compute_image" "db" {
 }
 
 resource "yandex_compute_instance" "db" {
-  for_each = toset(keys({for i, r in var.hw:  i => r}))
-  name  = var.hw[each.value]["vm_name"]
-  platform_id = var.vm_platform
+  depends_on = [ yandex_compute_instance.web ]
+  for_each = toset(keys({for i, r in var.mainreplica_resources:  i => r}))
+  name = "${var.vm_name}-${var.vm_env}-${var.mainreplica_resources[each.value]["vm_name"]}"
   allow_stopping_for_update = true
 
 resources {
-    cores  = var.hw[each.value]["cpu"]
-    memory = var.hw[each.value]["ram"]
+    cores  = var.mainreplica_resources[each.value]["cpu"]
+    memory = var.mainreplica_resources[each.value]["ram"]
   }
-
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.db.image_id
-      size = var.hw[each.value]["disk"]
-      type = "network-ssd"
+      size = var.mainreplica_resources[each.value]["disk"]
     }
   }
-
   scheduling_policy {
     preemptible = true
   }
-
   network_interface {
+    security_group_ids = ["${yandex_vpc_security_group.fw.id}"]
     subnet_id = yandex_vpc_subnet.develop.id
     nat       = true
   }
-
     metadata = {
     ssh-keys = "${local.user}:${local.key}"
   }
-
-  depends_on = [
-    yandex_compute_instance.web
-  ]
 }

@@ -4,7 +4,7 @@
   gather_facts: false
   hosts: all
   vars:
-    ansible_user: ubuntu
+    ansible_user: debian
   become: yes
   tasks:
   

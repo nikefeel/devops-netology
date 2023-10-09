@@ -1,7 +1,6 @@
 resource "yandex_compute_disk" "volume" {
  size = 1
  count = 3
- type = "network-ssd"
  name  = "volume-${count.index}"
 }
 
@@ -10,43 +9,35 @@ data "yandex_compute_image" "storage" {
 }
 
 resource "yandex_compute_instance" "storage" {
-  name  = "netology-storage"
-  platform_id = var.vm_platform
+  depends_on = [ yandex_compute_instance.db ]
+  name = "${var.vm_name}-${var.vm_env}-${var.vm_role_storage}"
   allow_stopping_for_update = true
 
-  resources {
-    cores  = 2
-    memory = 1
-    core_fraction = 20
+resources {
+    cores         = var.vm_db_resources.cpu
+    memory        = var.vm_db_resources.ram
+    core_fraction = var.vm_db_resources.core_fraction
   }
-
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.storage.image_id
-      type = "network-ssd"
+     }
+  }
+ dynamic "secondary_disk" {
+    for_each = yandex_compute_disk.volume.*.id
+    content {
+      disk_id   = yandex_compute_disk.volume.name
     }
   }
-
-# dynamic "secondary_disk" {
-#    for_each = yandex_compute_disk.volume
-#    content {
-#      disk_id   = local.volumes_ids.id
-#    }
-#  }
-
   scheduling_policy {
     preemptible = true
   }
-
   network_interface {
+    security_group_ids = ["${yandex_vpc_security_group.fw.id}"]
     subnet_id = yandex_vpc_subnet.develop.id
     nat       = true
   }
-
     metadata = {
     ssh-keys = "${local.user}:${local.key}"
   }
-    depends_on = [
-    yandex_compute_instance.db
-  ]
 }
