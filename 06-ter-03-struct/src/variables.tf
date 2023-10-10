@@ -109,24 +109,3 @@ variable "vm_storage_resources" {
     }
   ]
 }
-
-variable "volumes" {
-  type = list(object({
-   volume_name = string
-   volume_size = number
-  }))
-  default = [
-    {
-   volume_name = "volume-1"
-   volume_size    = 1
-    },
-    {
-   volume_name = "volume-2"
-   volume_size    = 1
-    },
-    {
-   volume_name = "volume-3"
-   volume_size    = 1
-    }
-  ]
-}
