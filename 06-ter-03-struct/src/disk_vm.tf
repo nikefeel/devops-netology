@@ -1,7 +1,7 @@
 resource "yandex_compute_disk" "volumes" {
-  for_each = { for volume in var.volumes : volume.volume_name => volume }
-  name     = each.value["volume_name"]
-  size     = each.value["volume_size"]
+  count = 3
+  name  = "volume-${count.index+1}"
+  size  = 1
 }
 
 data "yandex_compute_image" "storage" {
@@ -24,9 +24,9 @@ resources {
      }
   }
   dynamic "secondary_disk" {
-    for_each = var.volumes
+    for_each = yandex_compute_disk.volumes.*.id
     content {
-      disk_id   = yandex_compute_disk.volumes[secondary_disk.value.volume_name].id
+      disk_id   = secondary_disk.value
     }
   }
   scheduling_policy {
