@@ -1,0 +1,18 @@
+---
+  el:
+    hosts:
+      centos:
+        ansible_host: 51.250.16.110
+        ansible_connection: ssh
+        ansible_user: centos
+  deb:
+    hosts:
+      ubuntu:
+        ansible_host: 158.160.67.239
+        ansible_connection: ssh
+        ansible_user: ubuntu
+  local:
+    hosts:
+      localhost:
+        ansible_host: localhost
+        ansible_connection: local
