@@ -1,37 +1,21 @@
 ---
 - name: Install Clickhouse
   hosts: clickhouse
-  handlers:
-    - name: Start clickhouse service
-      become: true
-      ansible.builtin.service:
-        name: clickhouse-server
-        enabled: true
-        state: restarted
   tasks:
-    - name: Get clickhouse distrib
-      block:
-        - name: Get clickhouse
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
-            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
-            mode: '644'
-          with_items: "{{ clickhouse_packages }}"
-      rescue:
-        - name: Get clickhouse common
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
-            dest: "./clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
-            mode: '644'
-          with_items: "{{ clickhouse_packages }}"
-    - name: Install clickhouse packages
+    - name: Get clickhouse
+      ansible.builtin.get_url:
+        url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.x86_64.rpm"
+        dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+        mode: '644'
+      with_items: "{{ clickhouse_packages }}"
+    - name: Install clickhouse
       become: true
       ansible.builtin.yum:
         name:
-          - clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm
+          - clickhouse-common-static-{{ clickhouse_version }}.rpm
           - clickhouse-client-{{ clickhouse_version }}.rpm
           - clickhouse-server-{{ clickhouse_version }}.rpm
-      notify: Start clickhouse service
+      notify: Start clickhouse
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
     - name: Create database
@@ -40,49 +24,44 @@
       failed_when: create_db.rc != 0 and create_db.rc != 82
       changed_when: create_db.rc == 0
 
-- name: Install Vector
-  hosts: vector
   handlers:
-    - name: Start vector service
+    - name: Start clickhouse
       become: true
       ansible.builtin.service:
-        name: vector
+        name: clickhouse-server
         enabled: true
         state: restarted
+
+- name: Install Vector
+  hosts: vector
   tasks:
-    - name: Get vector distrib
-      block:
-        - name: Get vector
-          ansible.builtin.get_url:
-            url: "https://yum.vector.dev/stable/vector-0/x86_64/{{ item }}-{{ vector_version }}.x86_64.rpm"
-            dest: "./{{ item }}-{{ vector_version }}.rpm"
-            mode: '644'
-          with_items: "{{ vector_packages }}"
-      rescue:
-        - name: Get vector
-          ansible.builtin.get_url:
-            url: "https://yum.vector.dev/stable/vector-0/x86_64/{{ item }}-{{ vector_version }}.x86_64.rpm"
-            dest: "./{{ item }}-{{ vector_version }}.rpm"
-            mode: '644'
-          with_items: "{{ vector_packages }}"
-      always:
-        - name: Get vector
-          ansible.builtin.get_url:
-            url: "https://yum.vector.dev/stable/vector-0/x86_64/{{ item }}-{{ vector_version }}.x86_64.rpm"
-            dest: "./{{ item }}-{{ vector_version }}.rpm"
-            mode: '644'
-          with_items: "{{ vector_packages }}"
-    - name: Install vector packages
+    - name: Get vector
+      ansible.builtin.get_url:
+        url: "https://yum.vector.dev/stable/vector-0/x86_64/{{ item }}-{{ vector_version }}.x86_64.rpm"
+        dest: "./{{ item }}-{{ vector_version }}.rpm"
+        mode: '644'
+      with_items: "{{ vector_packages }}"
+    - name: Install vector
       become: true
       ansible.builtin.yum:
         name:
           - vector-{{ vector_version }}.rpm
-      notify: Start vector service
+      notify:
+        - Vector template
+        - Start vector
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
+  handlers:
     - name: Vector template
       become: true
       ansible.builtin.template:
         mode: '644'
         src: vector.j2
         dest: "/etc/vector/vector.yaml"
+
+    - name: Start vector
+      become: true
+      ansible.builtin.service:
+        name: vector
+        enabled: true
+        state: restarted
