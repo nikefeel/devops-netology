@@ -6,29 +6,38 @@
       become: true
       ansible.builtin.service:
         name: clickhouse-server
-        enabled: yes
+        enabled: true
         state: restarted
   tasks:
-    - block:
-        - name: Get clickhouse distrib
+    - name: Get clickhouse distrib
+      block:
+        - name: Get clickhouse
           ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.x86_64.rpm"
+            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
             dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+            mode: '644'
+          with_items: "{{ clickhouse_packages }}"
+      rescue:
+        - name: Get clickhouse common
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            mode: '644'
           with_items: "{{ clickhouse_packages }}"
     - name: Install clickhouse packages
       become: true
       ansible.builtin.yum:
         name:
-          - clickhouse-common-static-{{ clickhouse_version }}.rpm
+          - clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm
           - clickhouse-client-{{ clickhouse_version }}.rpm
           - clickhouse-server-{{ clickhouse_version }}.rpm
       notify: Start clickhouse service
     - name: Flush handlers
-      meta: flush_handlers
+      ansible.builtin.meta: flush_handlers
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
-      failed_when: create_db.rc != 0 and create_db.rc !=82
+      failed_when: create_db.rc != 0 and create_db.rc != 82
       changed_when: create_db.rc == 0
 
 - name: Install Vector
@@ -38,14 +47,30 @@
       become: true
       ansible.builtin.service:
         name: vector
-        enabled: yes
+        enabled: true
         state: restarted
   tasks:
-    - block:
-        - name: Get vector distrib
+    - name: Get vector distrib
+      block:
+        - name: Get vector
           ansible.builtin.get_url:
             url: "https://yum.vector.dev/stable/vector-0/x86_64/{{ item }}-{{ vector_version }}.x86_64.rpm"
             dest: "./{{ item }}-{{ vector_version }}.rpm"
+            mode: '644'
+          with_items: "{{ vector_packages }}"
+      rescue:
+        - name: Get vector
+          ansible.builtin.get_url:
+            url: "https://yum.vector.dev/stable/vector-0/x86_64/{{ item }}-{{ vector_version }}.x86_64.rpm"
+            dest: "./{{ item }}-{{ vector_version }}.rpm"
+            mode: '644'
+          with_items: "{{ vector_packages }}"
+      always:
+        - name: Get vector
+          ansible.builtin.get_url:
+            url: "https://yum.vector.dev/stable/vector-0/x86_64/{{ item }}-{{ vector_version }}.x86_64.rpm"
+            dest: "./{{ item }}-{{ vector_version }}.rpm"
+            mode: '644'
           with_items: "{{ vector_packages }}"
     - name: Install vector packages
       become: true
@@ -54,9 +79,10 @@
           - vector-{{ vector_version }}.rpm
       notify: Start vector service
     - name: Flush handlers
-      meta: flush_handlers
-    - name: vector template
+      ansible.builtin.meta: flush_handlers
+    - name: Vector template
       become: true
       ansible.builtin.template:
-       src: vector.j2
-       dest: /etc/vector/vector.yaml
+        mode: '644'
+        src: vector.j2
+        dest: "/etc/vector/vector.yaml"

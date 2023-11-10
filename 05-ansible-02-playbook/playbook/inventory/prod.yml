@@ -2,13 +2,13 @@
 clickhouse:
   hosts:
     clickhouse:
-      ansible_host: 158.160.74.79
+      ansible_host: 158.160.9.135
       ansible_connection: ssh
       ansible_user: centos
 
 vector:
   hosts:
     vector:
-      ansible_host: 158.160.74.79
+      ansible_host: 158.160.9.135
       ansible_connection: ssh
       ansible_user: centos

@@ -1,6 +1,12 @@
 ---
-clickhouse_version: "23.9.3.12"
+clickhouse_version: "22.3.3.44"
 clickhouse_packages:
+  - clickhouse-client
+  - clickhouse-server
+  - clickhouse-common-static
+
+clickhouse_version_new: "23.9.3.12"
+clickhouse_packages_new:
   - clickhouse-client
   - clickhouse-server
   - clickhouse-common-static
