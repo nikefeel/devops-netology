@@ -20,7 +20,7 @@
 - 4.5. [Использование Terraform в команде](04-ter-05-team/README.md)
 ## Модуль 5. Система управления конфигурациями
 - 5.1. [Введение в Ansible](05-ansible-01-base/README.md)
-- 5.2. [Работа с Playbook](05-ansible-02-playbook/README.md)
+- 5.2. [Работа с Playbook](05-ansible-02-playbook/playbook/README.md)
 - 5.3. [Использование Ansible](05-ansible-03-yandex/README.md)
 - 5.4. [Работа с roles](05-ansible-04-role/README.md)
 - 5.5. [Тестирование roles](05-ansible-05-testing/README.md)
