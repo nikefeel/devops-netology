@@ -5,5 +5,8 @@
 [bug_workflow](bug_workflow.xml)
 
 ![](./img/bug_workflow.png)
-## Задание 2
-### Решение
+
+[other_workflow](other_workflow.xml)
+
+![](./img/other_workflow.png)
+
