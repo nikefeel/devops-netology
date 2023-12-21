@@ -5,3 +5,12 @@
 ### Решение
 
 ![](./img/sonar.png)
+
+## Задание 2
+### Решение
+
+[maven-metadata](maven-metadata.xml)
+
+## Задание 3
+### Решение
+[pom](pom.xml)
