@@ -13,8 +13,8 @@ Playbook использует роли для настройки\
 
 ## Установка
 Для установки разверните хосты с CentOS 7/8.
-- Пропишите хосты в `inventory/prod.yml`.
-- Скачайте роли `ansible-galaxy install -r requirements.yml`.
+- Пропишите хосты в `inventory/prod.yml`
+- Скачайте роли `ansible-galaxy install -r requirements.yml`
 - Запустите playbook `ansible-playbook -i inventory/prod.yml site.yml`
   
 ## Лицензия
