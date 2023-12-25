@@ -7,8 +7,8 @@
 
 Playbook использует роли для настройки\
 [Clickhouse](https://github.com/AlexeySetevoi/ansible-clickhouse/tree/1.13)\
-[Vector](https://github.com/nikefeel/vector-role.git)\
-[Lighthouse](https://github.com/nikefeel/lighthouse-role.git)
+[Vector](https://github.com/nikefeel/vector-role/tree/1.2)\
+[Lighthouse](https://github.com/nikefeel/lighthouse-role/tree/1.1)
 
 
 ## Установка

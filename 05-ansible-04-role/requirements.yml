@@ -6,6 +6,8 @@
 - name: vector
   src: git@github.com:nikefeel/vector-role.git
   scm: git
+  version: "1.2"
 - name: lighthouse
   src: git@github.com:nikefeel/lighthouse-role.git
   scm: git
+  version: "1.1"
