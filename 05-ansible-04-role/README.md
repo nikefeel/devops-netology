@@ -16,6 +16,6 @@ Playbook использует роли для настройки\
 - Пропишите хосты в `inventory/prod.yml`.
 - Скачайте роли `ansible-galaxy install -r requirements.yml`.
 - Запустите playbook `ansible-playbook -i inventory/prod.yml site.yml`
-- 
+  
 ## Лицензия
 Этот проект использует [MIT License](LICENSE).
