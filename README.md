@@ -29,5 +29,5 @@
 - 5.5. [Тестирование roles](05-ansible-05-testing/README.md)
 ## Модуль 6. Непрерывная разработка и интеграция
 - 6.1. [Жизненный цикл ПО](06-ci-01-intro/README.md)
-- 6.3 [Процессы CI/CD](06-ci-03-cicd/README.md)
-- 6.4 [Jenkins](06-ci-04-jenkins/README.md)
+- 6.3. [Процессы CI/CD](06-ci-03-cicd/README.md)
+- 6.4. [Jenkins](06-ci-04-jenkins/README.md)
