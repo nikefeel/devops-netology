@@ -25,11 +25,8 @@
 - 5.1. [Введение в Ansible](05-ansible-01-base/README.md)
 - 5.2. [Работа с Playbook](05-ansible-02-playbook/playbook/README.md)
 - 5.3. [Использование Ansible](05-ansible-03-yandex/README.md)
-<!---
 - 5.4. [Работа с roles](05-ansible-04-role/README.md)
 - 5.5. [Тестирование roles](05-ansible-05-testing/README.md)
-- 5.6. [Создание собственных модулей](05-ansible-06-module/README.md) 
--->
 ## Модуль 6. Непрерывная разработка и интеграция
 - 6.1. [Жизненный цикл ПО](06-ci-01-intro/README.md)
 - 6.3 [Процессы CI/CD](06-ci-03-cicd/README.md)
