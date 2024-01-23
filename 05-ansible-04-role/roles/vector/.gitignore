@@ -1,0 +1,10 @@
+**/.terraform/*
+**/.idea/*
+*.tfstate*
+*.tfvars*
+*.cfg
+*override.tf*
+.terraform*
+terraformrc
+crash.*
+.DS_Store

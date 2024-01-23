@@ -1,0 +1,7 @@
+---
+- name: Vector template
+  become: true
+  ansible.builtin.template:
+    mode: '644'
+    src: vector.j2
+    dest: "/etc/vector/vector.yaml"
