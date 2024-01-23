@@ -42,5 +42,5 @@ Dashboard с настроенными алертами
 Сработавшие алерты
 ![](./img/grafana3.png)
 
-JSON
-[file](grafana.json)
+### Задание 4
+JSON [file](grafana.json)
