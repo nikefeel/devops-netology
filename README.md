@@ -30,3 +30,7 @@
 - 6.1. [Жизненный цикл ПО](06-ci-01-intro/README.md)
 - 6.3. [Процессы CI/CD](06-ci-03-cicd/README.md)
 - 6.4. [Jenkins](06-ci-04-jenkins/README.md)
+## Модуль 7. Мониторинг и логи
+- 7.3. [Средство визуализации Grafana](07-monitoring-03-grafana/README.md)
+- 7.4. [Система сбора логов Elastic Stack](07-monitoring-04-elk/README.md)
+- 7.5. [Платформа мониторинга Sentry](07-monitoring-05-sentry/README.md)
