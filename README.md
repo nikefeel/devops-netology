@@ -34,3 +34,5 @@
 - 7.3. [Средство визуализации Grafana](07-monitoring-03-grafana/README.md)
 - 7.4. [Система сбора логов Elastic Stack](07-monitoring-04-elk/README.md)
 - 7.5. [Платформа мониторинга Sentry](07-monitoring-05-sentry/README.md)
+- ## Модуль 8. Микросервисы
+- 8.2. [Микросервисы: принципы](08-microservices-02-principles/README.md)
