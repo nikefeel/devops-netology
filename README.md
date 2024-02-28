@@ -36,4 +36,4 @@
 - 7.5. [Платформа мониторинга Sentry](07-monitoring-05-sentry/README.md)
 - ## Модуль 8. Микросервисы
 - 8.2. [Микросервисы: принципы](08-microservices-02-principles/README.md)
-- 8.2. [Микросервисы: подходы](08-microservices-03-approaches/README.md)
+- 8.3. [Микросервисы: подходы](08-microservices-03-approaches/README.md)
