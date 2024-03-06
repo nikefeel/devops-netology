@@ -4,6 +4,9 @@
 ### Задание 1
 ![](./img/echo.png)
 
+![](./hello-world.yaml)
+
 ## Решение
 ### Задание 2
 
+![](./img/kubectl.png)
