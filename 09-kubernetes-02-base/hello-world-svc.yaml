@@ -6,7 +6,7 @@ spec:
   selector:
     app: hello-world
   ports:
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
-    image: gcr.io/kubernetes-e2e-test-images/echoserver:2.2
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      image: gcr.io/kubernetes-e2e-test-images/echoserver:2.2
