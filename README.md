@@ -38,4 +38,5 @@
 - 8.2. [Микросервисы: принципы](08-microservices-02-principles/README.md)
 - 8.3. [Микросервисы: подходы](08-microservices-03-approaches/README.md)
 - ## Модуль 9. Kubernetes: основы, применение и администрирование
-- 9.1. [Kubernetes. Причины появления. Команда kubectl](09-kubernetes-01-kubectl/README.md)
+- 9.1. [Kubernetes. Причины появления. Команда kubectl](09-kubernetes-01-intro/README.md)
+- 9.2. [Базовые объекты K8S](09-kubernetes-02-base/README.md)
