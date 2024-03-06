@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: netology-web
+spec:
+  ports:
+  - name: netology-web
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    image: gcr.io/kubernetes-e2e-test-images/echoserver:2.2
+  selector:
+    app: hello-world
