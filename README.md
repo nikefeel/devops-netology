@@ -40,3 +40,4 @@
 - ## Модуль 9. Kubernetes: основы, применение и администрирование
 - 9.1. [Kubernetes. Причины появления. Команда kubectl](09-kubernetes-01-intro/README.md)
 - 9.2. [Базовые объекты K8S](09-kubernetes-02-base/README.md)
+- 9.3. [Запуск приложений в K8S](09-kubernetes-03-app/README.md)
