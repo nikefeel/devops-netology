@@ -41,5 +41,5 @@
 - 9.1. [Kubernetes. Причины появления. Команда kubectl](09-kubernetes-01-intro/README.md)
 - 9.2. [Базовые объекты K8S](09-kubernetes-02-base/README.md)
 - 9.3. [Запуск приложений в K8S](09-kubernetes-03-app/README.md)
-- 9.4. [Сетевое взаимодействие в Kubernetes. Часть 1](09-kubernetes-04-net-1/README.md)
-- 9.4.1 [Сетевое взаимодействие в Kubernetes. Часть 2](09-kubernetes-04-net-2//README.md)
+- 9.4.1 [Сетевое взаимодействие в Kubernetes. Часть 1](09-kubernetes-04-net-1/README.md)
+- 9.4.2 [Сетевое взаимодействие в Kubernetes. Часть 2](09-kubernetes-04-net-2//README.md)
