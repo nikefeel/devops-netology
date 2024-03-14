@@ -18,6 +18,7 @@
 
 ![](./img/curlmultitool.png)
 
+Манифесты\
 [nginx](nginx.yaml)\
 [multitool](multitool.yaml)\
 [multitool-pod](multitool-pod.yaml)\
@@ -27,3 +28,9 @@
 ## Решение
 ### Задание 2
 
+![](./img/pod_before.png)
+
+![](./img/pod_after.png)
+
+Манифесты\
+[nginx](nginx-pod.yaml)
